@@ -35,7 +35,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     borderRadius: 20,
-    marginTop: 10,
+    marginTop: 20,
+    marginBottom: 10,
     marginHorizontal: 15,
     padding: 2,
   },
@@ -50,6 +51,7 @@ const styles = StyleSheet.create({
   searchIcon: {
     padding: 10,
     color: "#989898",
+    fontSize: 20,
   },
   input: {
     flex: 1,
@@ -63,6 +65,7 @@ const styles = StyleSheet.create({
   clearIcon: {
     padding: 10,
     color: "#989898",
+    fontSize: 20,
   },
   filterButton: {
     backgroundColor: "#2570EB",

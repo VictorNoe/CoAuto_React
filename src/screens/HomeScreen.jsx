@@ -4,6 +4,7 @@ import {
   StyleSheet,
   ScrollView,
   RefreshControl,
+  View,
 } from "react-native";
 import CardCar from "../components/CardCar";
 import SearchBar from "../components/SearchBar";
@@ -76,18 +77,20 @@ const HomeScreen = ({ navigation }) => {
 
   return (
     <>
-      <ScrollView
-        style={{ backgroundColor: "#EFF5FF" }}
-        refreshControl={
-          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-        }
-      >
-        <StatusBar barStyle={"dark-content"} backgroundColor={"#EFF5FF"} />
+      <View style={styles.searchBarContainer}>
         <SearchBar
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}
           setModalVisible={setModalVisible}
         />
+      </View>
+      <ScrollView
+        style={{ backgroundColor: "#EFF5FF", paddingTop: 80 }}
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }
+      >
+        <StatusBar barStyle={"dark-content"} backgroundColor={"#EFF5FF"} />
         {filteredCars.map((car, index) => (
           <CardCar key={index} car={car} onPress={() => handleOnPress(car)} />
         ))}
@@ -103,6 +106,15 @@ const HomeScreen = ({ navigation }) => {
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  searchBarContainer: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    zIndex: 1000,
+    backgroundColor: "#EFF5FF",
+  },
+});
 
 export default HomeScreen;

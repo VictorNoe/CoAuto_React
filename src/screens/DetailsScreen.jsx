@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { StatusBar, ScrollView, StyleSheet, View } from "react-native";
 import Carousel from "../components/Carousel";
 import CarInfo from "../components/CarInfo";
+import Comments from "../components/Coments";
 import { getOneCar } from "../services/DetailsServices";
 
 const DetailsScreen = ({ route }) => {
@@ -24,6 +25,7 @@ const DetailsScreen = ({ route }) => {
       <StatusBar barStyle={"dark-content"} backgroundColor={"#EFF5FF"} />
       <Carousel images={carData.images} />
       <CarInfo info={carData} />
+      <Comments />
     </ScrollView>
   );
 };
