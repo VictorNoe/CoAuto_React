@@ -72,6 +72,7 @@ const HomeScreen = ({ navigation }) => {
   const onRefresh = async () => {
     setRefreshing(true);
     await fetchCars();
+    applyFilters(selectedFilter);
     setRefreshing(false);
   };
 

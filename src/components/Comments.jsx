@@ -2,47 +2,18 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 
-const Comments = () => {
+const Comments = ({ reviews }) => {
   return (
     <View style={styles.container}>
       <View style={styles.separatorContainer}>
         <View style={styles.separator} />
-        <Text style={styles.separatorText}>Comentarios (6)</Text>
+        <Text style={styles.separatorText}>
+          Comentarios ({reviews?.length})
+        </Text>
         <View style={styles.separator} />
       </View>
 
-      {[
-        {
-          username: "Jane Smith",
-          date: "08 de agosto de 2024",
-          comment:
-            "El nuevo Tesla Model S es absolutamente impresionante. ¡El rendimiento es increíble!",
-        },
-        {
-          username: "Carlos Rivera",
-          date: "08 de agosto de 2024",
-          comment:
-            "Acabo de comprar el último Toyota Corolla, y es increíblemente confiable. ¡Además, tiene un gran rendimiento de combustible!",
-        },
-        {
-          username: "Emily Johnson",
-          date: "08 de agosto de 2024",
-          comment:
-            "No estoy impresionada con el último BMW Serie 3. La conducción se siente demasiado rígida para el uso diario.",
-        },
-        {
-          username: "Daniel Wong",
-          date: "08 de agosto de 2024",
-          comment:
-            "La Ford F-150 siempre ha sido mi camioneta preferida. Es potente, duradera y perfecta para trabajos pesados.",
-        },
-        {
-          username: "Sofia Martinez",
-          date: "08 de agosto de 2024",
-          comment:
-            "Tenía dudas sobre los autos eléctricos, pero después de conducir el Nissan Leaf, estoy convencida. Es suave y ecológico.",
-        },
-      ].map((item, index) => (
+      {reviews?.map((item, index) => (
         <View key={index} style={styles.commentCard}>
           <View style={styles.commentContainer}>
             <Icon
@@ -52,8 +23,8 @@ const Comments = () => {
               style={styles.profilePicture}
             />
             <View style={styles.commentHeaderContainer}>
-              <Text style={styles.username}>{item.username}</Text>
-              <Text style={styles.date}>{item.date}</Text>
+              <Text style={styles.username}>{"Anónimo"}</Text>
+              <Text style={styles.date}>{item.created_at}</Text>
             </View>
           </View>
           <Text style={styles.comment}>{item.comment}</Text>
